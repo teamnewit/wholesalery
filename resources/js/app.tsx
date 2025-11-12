@@ -1,16 +1,29 @@
 import '../css/app.css';
 
 import { createInertiaApp } from '@inertiajs/react';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
 import { initializeTheme } from './hooks/use-appearance';
 import { Toaster } from 'sonner';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
+const pages = import.meta.glob('./pages/**/*.tsx');
+
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
+    resolve: (name) => {
+        const normalized = name.replace(/\\/g, '/');
+        const exact = `./pages/${normalized}.tsx`;
+        if (pages[exact]) return pages[exact];
+
+        const lower = `./pages/${normalized.toLowerCase()}.tsx`;
+        for (const key of Object.keys(pages)) {
+            if (key === lower || key.toLowerCase() === exact.toLowerCase() || key.toLowerCase().endsWith(`/${normalized.toLowerCase()}.tsx`)) {
+                return pages[key];
+            }
+        }
+        throw new Error(`Page not found: ./pages/${name}.tsx`);
+    },
     setup({ el, App, props }) {
         const root = createRoot(el);
 
