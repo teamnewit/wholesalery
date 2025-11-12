@@ -1,5 +1,6 @@
 import { createInertiaApp } from '@inertiajs/react';
 import createServer from '@inertiajs/react/server';
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import ReactDOMServer from 'react-dom/server';
 import { type RouteName, route } from 'ziggy-js';
 
@@ -15,12 +16,12 @@ createServer((page) =>
         resolve: (name) => {
             const normalized = name.replace(/\\/g, '/');
             const exact = `./pages/${normalized}.tsx`;
-            if (pages[exact]) return pages[exact];
+            if (pages[exact]) return resolvePageComponent(exact, pages);
 
             const lower = `./pages/${normalized.toLowerCase()}.tsx`;
             for (const key of Object.keys(pages)) {
                 if (key === lower || key.toLowerCase() === exact.toLowerCase() || key.toLowerCase().endsWith(`/${normalized.toLowerCase()}.tsx`)) {
-                    return pages[key];
+                    return resolvePageComponent(key, pages);
                 }
             }
             throw new Error(`Page not found: ./pages/${name}.tsx`);

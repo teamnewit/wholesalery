@@ -1,6 +1,7 @@
 import '../css/app.css';
 
 import { createInertiaApp } from '@inertiajs/react';
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
 import { initializeTheme } from './hooks/use-appearance';
 import { Toaster } from 'sonner';
@@ -14,12 +15,12 @@ createInertiaApp({
     resolve: (name) => {
         const normalized = name.replace(/\\/g, '/');
         const exact = `./pages/${normalized}.tsx`;
-        if (pages[exact]) return pages[exact];
+        if (pages[exact]) return resolvePageComponent(exact, pages);
 
         const lower = `./pages/${normalized.toLowerCase()}.tsx`;
         for (const key of Object.keys(pages)) {
             if (key === lower || key.toLowerCase() === exact.toLowerCase() || key.toLowerCase().endsWith(`/${normalized.toLowerCase()}.tsx`)) {
-                return pages[key];
+                return resolvePageComponent(key, pages);
             }
         }
         throw new Error(`Page not found: ./pages/${name}.tsx`);
