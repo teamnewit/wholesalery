@@ -49,8 +49,8 @@ ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=0 \
     PHP_OPCACHE_ENABLE=1 \
     PHP_OPCACHE_ENABLE_CLI=0
 
-# Expose HTTP
-EXPOSE 80
+# Expose HTTP on port 8080 (Kinsta expects containers to listen here)
+EXPOSE 8080
 
 # Start both php-fpm and nginx via Supervisor
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
