@@ -245,9 +245,12 @@ export default function Welcome() {
         {/* Product Categories Section */}
         <section className="w-full bg-white dark:bg-gray-950 py-20 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 opacity-0" ref={accountHeaderRef}>
-              <p className="text-sm text-blue-600 dark:text-blue-400 font-medium mb-2 tracking-wider">WIDE RANGE OF PRODUCTS</p>
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Explore Our Products</h2>
+            <div className="text-center mb-12">
+              <p className="text-sm text-blue-600 dark:text-blue-400 font-medium mb-2 tracking-wider">BROWSE BY SECTOR</p>
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">Explore Product Categories</h2>
+              <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Discover wholesale opportunities across diverse industries. From agriculture to electronics, find verified suppliers for your business needs.
+              </p>
             </div>
 
             {/* Category Grid */}
@@ -305,6 +308,101 @@ export default function Welcome() {
                   )}
                 </>
               )}
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        <section className="w-full bg-gray-50 dark:bg-gray-900 py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <p className="text-sm text-blue-600 dark:text-blue-400 font-medium mb-2 tracking-wider">SIMPLE PROCESS</p>
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">How Wholesalery Works</h2>
+              <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Start trading in minutes with our streamlined platform designed for B2B success
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {/* Step 1 */}
+              <div className="relative">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 text-center h-full border border-gray-200 dark:border-gray-700">
+                  <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">1</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Create Account</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Sign up as a buyer or supplier in under 2 minutes
+                  </p>
+                </div>
+                {/* Arrow */}
+                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                  <svg className="w-8 h-8 text-gray-300 dark:text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Step 2 */}
+              <div className="relative">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 text-center h-full border border-gray-200 dark:border-gray-700">
+                  <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">2</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Browse & Search</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Explore thousands of products from verified suppliers
+                  </p>
+                </div>
+                {/* Arrow */}
+                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                  <svg className="w-8 h-8 text-gray-300 dark:text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="relative">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 text-center h-full border border-gray-200 dark:border-gray-700">
+                  <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">3</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Connect & Negotiate</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Message suppliers directly to discuss terms and pricing
+                  </p>
+                </div>
+                {/* Arrow */}
+                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                  <svg className="w-8 h-8 text-gray-300 dark:text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Step 4 */}
+              <div>
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 text-center h-full border border-gray-200 dark:border-gray-700">
+                  <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">4</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Complete Order</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Secure payment and track your order until delivery
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <button 
+                type="button"
+                className="px-8 py-3 rounded-md bg-blue-600 text-white font-medium text-sm hover:bg-blue-700 transition-colors dark:bg-blue-700 dark:hover:bg-blue-600"
+                onClick={() => window.location.href = '/register/buyer'}
+              >
+                Get Started Now
+              </button>
             </div>
           </div>
         </section>
