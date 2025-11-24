@@ -63,4 +63,15 @@ class MarketplaceController extends Controller
             ->get(['id','name','slug','sector_id']);
         return response()->json($categories);
     }
+
+    /**
+     * Lightweight sectors JSON for client-side use
+     */
+    public function sectors(Request $request): JsonResponse
+    {
+        $sectors = Sector::withCount(['categories'])
+            ->orderBy('name')
+            ->get(['id','name','slug','image_url']);
+        return response()->json($sectors);
+    }
 }

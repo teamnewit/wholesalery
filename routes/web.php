@@ -22,6 +22,7 @@ Route::get('/wholesale-marketplace', [MarketplaceController::class, 'index'])->n
 Route::get('/category/{sectorSlug}/{categorySlug}', [MarketplaceController::class, 'category'])->name('marketplace.category');
 // JSON for marketplace search
 Route::get('/api/categories', [MarketplaceController::class, 'categories']);
+Route::get('/api/sectors', [MarketplaceController::class, 'sectors']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Dashboard
